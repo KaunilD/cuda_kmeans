@@ -10,6 +10,11 @@ using DataSet = std::vector<Point>;
 
 double square(double v) {return v * v;}
 
+
+__global__ void l2Norm(float x1, float y1, float x2, float y2) {
+	return sqrt(pow(x1 - x2, 2.0) + pow(x1 - x2, 2.0));
+}
+
 double l2Norm(Point p1, Point p2) {
 	return sqrt(square(p1.x - p2.x) + square(p1.y - p2.y));
 }
