@@ -11,9 +11,10 @@ using DataSet = std::vector<Point>;
 double square(double v) {return v * v;}
 
 
-__global__ void l2Norm(float x1, float y1, float x2, float y2) {
+__global__ float l2Norm(float x1, float y1, float x2, float y2) {
 	return sqrt(pow(x1 - x2, 2.0) + pow(x1 - x2, 2.0));
 }
+
 
 double l2Norm(Point p1, Point p2) {
 	return sqrt(square(p1.x - p2.x) + square(p1.y - p2.y));
@@ -95,13 +96,33 @@ DataSet kMeans(const DataSet& data, size_t k, size_t iterations) {
 
 int main()
 {
-	DataSet dataset{
+	DataSet h_dataset{
 		Point{1, 2}, Point{1, 4}, Point{1, 0},
 		Point{10, 2}, Point{10, 4}, Point{10, 0}
 	};
 	int k = 2, n_iter = 100;
+	int dataset_size = h_dataset.size() * sizeof(Point);
 
-	DataSet centers = kMeans(dataset, k, n_iter);
+	DataSet * d_dataset;
+
+	//create space and transfer data to GPU
+	cudaMalloc((void**)&d_dataset, dataset_size);
+	cudaMemcpy(d_dataset, &h_dataset[0], dataset_size, cudaMemcpyHostToDevice);
+
+
+	/*
+		1060 specs from device query
+		Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+		Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+	*/
+	// initialize dim of grid and thread blocks 
+	struct { int x, y, z; } threadDim = { 1024, 1, 1 };
+	struct  { int x, y, z; } gridDim = { (dataset_size + threadDim.x - 1) / threadDim, 1, 1 };
+
+
+
+
+	DataSet centers = kMeans(h_dataset, k, n_iter);
 
 	cout << centers[0].x << ", " << centers[0].y << endl;
 	cout << centers[1].x << ", " << centers[1].y << endl;
