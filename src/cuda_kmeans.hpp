@@ -4,6 +4,7 @@
 #pragma once
 
 #include <iostream>
-#include "libs.h"
-#include "point.h"
+#include "libs.hpp"
+#include "point.hpp"
+#include "cuda_datum.hpp"
 // TODO: Reference additional headers your program requires here.

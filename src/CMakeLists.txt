@@ -27,7 +27,7 @@ endif()
 
 
 # Add source to this project's executable.
-add_executable (cuda_kmeans  "cuda_kmeans.cpp"  "cuda_kmeans.hpp" "libs.h" "point.h")
+add_executable (cuda_kmeans  "cuda_utils.hpp" "cuda_kmeans.cpp"  "cuda_kmeans.hpp" "libs.hpp" "point.hpp" "cuda_datum.hpp")
 
 # TODO: Add tests and install targets if needed.
 target_include_directories( cuda_kmeans PUBLIC ${CUDA_INCLUDE_DIRS})

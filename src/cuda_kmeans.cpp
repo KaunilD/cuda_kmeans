@@ -1,20 +1,12 @@
 ﻿// cuda_kmeans.cpp : Defines the entry point for the application.
 //
 
-#include "cuda_kmeans.h"
+#include "cuda_kmeans.hpp"
 
 using std::cout;
 using std::endl;
 
-using DataSet = std::vector<Point>;
-
 double square(double v) {return v * v;}
-
-
-__global__ float l2Norm(float x1, float y1, float x2, float y2) {
-	return sqrt(pow(x1 - x2, 2.0) + pow(x1 - x2, 2.0));
-}
-
 
 double l2Norm(Point p1, Point p2) {
 	return sqrt(square(p1.x - p2.x) + square(p1.y - p2.y));
@@ -96,14 +88,13 @@ DataSet kMeans(const DataSet& data, size_t k, size_t iterations) {
 
 int main()
 {
-	DataSet h_dataset{
-		Point{1, 2}, Point{1, 4}, Point{1, 0},
-		Point{10, 2}, Point{10, 4}, Point{10, 0}
+	std::vector<float3> h_dataset = {
+		float3{1, 2}, float3{1, 4}, float3{1, 0},
+		float3{10, 2}, float3{10, 4}, float3{10, 0}
 	};
+
 	int k = 2, n_iter = 100;
 	int dataset_size = h_dataset.size() * sizeof(Point);
-
-	DataSet * d_dataset;
 
 	//create space and transfer data to GPU
 	cudaMalloc((void**)&d_dataset, dataset_size);
