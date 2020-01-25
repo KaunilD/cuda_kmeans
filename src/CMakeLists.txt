@@ -1,7 +1,4 @@
-﻿# CMakeList.txt : CMake project for cuda_kmeans, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.8)
 
 find_package( CUDA REQUIRED )
 
@@ -47,5 +44,3 @@ add_library(libcudakmeans STATIC ${KERNELS} ${HEADERS} ${SOURCES})
 
 target_include_directories( libcudakmeans PUBLIC ${CMAKE_SOURCE_DIR}/include )
 target_include_directories( libcudakmeans PUBLIC ${CUDA_INCLUDE_DIRS})
-
-target_link_libraries(libcudakmeans ${CUDA_cudadevrt_LIBRARY})
