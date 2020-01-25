@@ -25,9 +25,27 @@ else(CUDA_FOUND)
 	message("CUDA is not installed on this system.")
 endif()
 
+set ( KERNELS
+	kmeans.cu
+)
+
+set ( HEADERS
+	${CMAKE_SOURCE_DIR}/include/cuda_datum.hpp
+	${CMAKE_SOURCE_DIR}/include/cuda_kmeans.hpp
+	${CMAKE_SOURCE_DIR}/include/cuda_utils.hpp
+	${CMAKE_SOURCE_DIR}/include/libs.hpp
+)
+
+set ( SRCS
+	cuda_datum.cpp
+	cuda_kmeans.cpp
+	cuda_utils.cpp
+)
 
 # Add source to this project's executable.
-add_executable (cuda_kmeans  "cuda_utils.hpp" "cuda_kmeans.cpp"  "cuda_kmeans.hpp" "libs.hpp" "point.hpp" "cuda_datum.hpp")
+add_library(libcudakmeans STATIC ${KERNELS} ${HEADERS} ${SOURCES})
 
-# TODO: Add tests and install targets if needed.
-target_include_directories( cuda_kmeans PUBLIC ${CUDA_INCLUDE_DIRS})
+target_include_directories( libcudakmeans PUBLIC ${CMAKE_SOURCE_DIR}/include )
+target_include_directories( libcudakmeans PUBLIC ${CUDA_INCLUDE_DIRS})
+
+target_link_libraries(libcudakmeans ${CUDA_cudadevrt_LIBRARY})

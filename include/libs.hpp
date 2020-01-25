@@ -1,11 +1,11 @@
-#pragma once
+#ifndef LIBS_H
+#define LIBS_H
+#endif
 
 #include <algorithm>
 #include <cstdlib>
 #include <limits>
 #include <random>
+#include <iostream>
 #include <vector>
-
-// CUDA RT
-#include "cuda.h"
-#include <cuda_runtime.h>
+#include <assert.h>
