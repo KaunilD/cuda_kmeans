@@ -1,4 +1,4 @@
-#include "cuda_datum.hpp"
+#include "cuda_kmeans/cuda_datum.hpp"
 
 CUDADatum::CUDADatum(size_t _size, float *data) : size(sizeof(float3)*_size) {
 		cudaError_t status = cudaMalloc(&d_buffer, size);

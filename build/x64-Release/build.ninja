@@ -49,161 +49,12 @@ build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 # =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/dhruv/Development/git/cuda_kmeans/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target libcudakmeans
-
-
-#############################################
-# Order-only phony target for libcudakmeans
-
-build cmake_object_order_depends_target_libcudakmeans: phony || src\CMakeFiles\libcudakmeans.dir
-build src\CMakeFiles\libcudakmeans.dir\kmeans.cu.obj: CUDA_COMPILER__libcudakmeans ..\..\src\kmeans.cu || cmake_object_order_depends_target_libcudakmeans
-  DEP_FILE = src\CMakeFiles\libcudakmeans.dir\kmeans.cu.obj.d
-  FLAGS = -D_WINDOWS -Xcompiler="/W3 /GR /EHsc" -Xcompiler="-MD -Zi -O2 -Ob1" -DNDEBUG
-  INCLUDES = -I..\..\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"
-  OBJECT_DIR = src\CMakeFiles\libcudakmeans.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\libcudakmeans.dir
-  TARGET_COMPILE_PDB = src\CMakeFiles\libcudakmeans.dir\libcudakmeans.pdb
-  TARGET_PDB = src\libcudakmeans.pdb
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target libcudakmeans
-
-
-#############################################
-# Link the static library src\libcudakmeans.lib
-
-build src\libcudakmeans.lib: CUDA_STATIC_LIBRARY_LINKER__libcudakmeans src\CMakeFiles\libcudakmeans.dir\kmeans.cu.obj
-  LANGUAGE_COMPILE_FLAGS = -D_WINDOWS -Xcompiler="/W3 /GR /EHsc" -Xcompiler="-MD -Zi -O2 -Ob1" -DNDEBUG
-  LINK_FLAGS = /machine:x64
-  OBJECT_DIR = src\CMakeFiles\libcudakmeans.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = src\CMakeFiles\libcudakmeans.dir\libcudakmeans.pdb
-  TARGET_FILE = src\libcudakmeans.lib
-  TARGET_PDB = src\libcudakmeans.pdb
-
-#############################################
-# Utility command for edit_cache
-
-build src\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\dhruv\Development\git\cuda_kmeans\build\x64-Release\src && "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-build src\edit_cache: phony src\CMakeFiles\edit_cache.util
-
-#############################################
-# Utility command for rebuild_cache
-
-build src\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\dhruv\Development\git\cuda_kmeans\build\x64-Release\src && "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -HC:\Users\dhruv\Development\git\cuda_kmeans -BC:\Users\dhruv\Development\git\cuda_kmeans\build\x64-Release"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-build src\rebuild_cache: phony src\CMakeFiles\rebuild_cache.util
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/dhruv/Development/git/cuda_kmeans/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for EXECUTABLE target example
-
-
-#############################################
-# Order-only phony target for example
-
-build cmake_object_order_depends_target_example: phony || cmake_object_order_depends_target_libcudakmeans
-build examples\CMakeFiles\example.dir\example.cpp.obj: CXX_COMPILER__example ..\..\examples\example.cpp || cmake_object_order_depends_target_example
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
-  INCLUDES = -I..\..\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.2\include"
-  OBJECT_DIR = examples\CMakeFiles\example.dir
-  OBJECT_FILE_DIR = examples\CMakeFiles\example.dir
-  TARGET_COMPILE_PDB = examples\CMakeFiles\example.dir\
-  TARGET_PDB = examples\example.pdb
-
-# =============================================================================
-# Device Link build statements for EXECUTABLE target example
-
-
-#############################################
-# Link the executable examples\CMakeFiles\example.dir\cmake_device_link.obj
-
-build examples\CMakeFiles\example.dir\cmake_device_link.obj: CXX_EXECUTABLE_DEVICE_LINKER__example examples\CMakeFiles\example.dir\example.cpp.obj | src\libcudakmeans.lib || src\libcudakmeans.lib
-  FLAGS = -D_WINDOWS -Xcompiler="/W3 /GR /EHsc" -Xcompiler="-MD -Zi -O2 -Ob1" -DNDEBUG
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = -Xnvlink src\libcudakmeans.lib cudadevrt.lib cudart_static.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  LINK_PATH = -LIBPATH:C:\PROGRA~1\NVIDIA~2\CUDA\v9.2\lib\x64
-  OBJECT_DIR = examples\CMakeFiles\example.dir
-  TARGET_COMPILE_PDB = examples\CMakeFiles\example.dir\
-  TARGET_FILE = examples\CMakeFiles\example.dir\cmake_device_link.obj
-  TARGET_IMPLIB = examples\example.lib
-  TARGET_PDB = examples\example.pdb
-# =============================================================================
-# Link build statements for EXECUTABLE target example
-
-
-#############################################
-# Link the executable examples\example.exe
-
-build examples\example.exe: CXX_EXECUTABLE_LINKER__example examples\CMakeFiles\example.dir\example.cpp.obj examples\CMakeFiles\example.dir\cmake_device_link.obj | src\libcudakmeans.lib || src\libcudakmeans.lib
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = src\libcudakmeans.lib cudadevrt.lib cudart_static.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  LINK_PATH = -LIBPATH:C:\PROGRA~1\NVIDIA~2\CUDA\v9.2\lib\x64
-  OBJECT_DIR = examples\CMakeFiles\example.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = examples\CMakeFiles\example.dir\
-  TARGET_FILE = examples\example.exe
-  TARGET_IMPLIB = examples\example.lib
-  TARGET_PDB = examples\example.pdb
-
-#############################################
-# Utility command for edit_cache
-
-build examples\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\dhruv\Development\git\cuda_kmeans\build\x64-Release\examples && "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-build examples\edit_cache: phony examples\CMakeFiles\edit_cache.util
-
-#############################################
-# Utility command for rebuild_cache
-
-build examples\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\dhruv\Development\git\cuda_kmeans\build\x64-Release\examples && "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -HC:\Users\dhruv\Development\git\cuda_kmeans -BC:\Users\dhruv\Development\git\cuda_kmeans\build\x64-Release"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-build examples\rebuild_cache: phony examples\CMakeFiles\rebuild_cache.util
-# =============================================================================
 # Target aliases.
 
-build example: phony examples\example.exe
-build example.exe: phony examples\example.exe
-build libcudakmeans: phony src\libcudakmeans.lib
-build libcudakmeans.lib: phony src\libcudakmeans.lib
 # =============================================================================
 # Folder targets.
 
 # =============================================================================
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/examples
-
-build  examples\all: phony example
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/src
-
-build  src\all: phony libcudakmeans
 # =============================================================================
 # Built-in targets
 
@@ -211,7 +62,7 @@ build  src\all: phony libcudakmeans
 #############################################
 # The main all target.
 
-build all: phony src\libcudakmeans.lib examples\example.exe
+build all: phony
 
 #############################################
 # Make the all target the default.
@@ -221,13 +72,13 @@ default all
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\..\CMakeLists.txt ..\..\examples\CMakeLists.txt ..\..\src\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCUDAInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindCUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindCUDA\select_compute_arch.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.12.18081601-MSVC_2\CMakeCUDACompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ..\..\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCUDAInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\GNUInstallDirs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.12.18081601-MSVC_2\CMakeCUDACompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeSystem.cmake
   pool = console
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\..\CMakeLists.txt ..\..\examples\CMakeLists.txt ..\..\src\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCUDAInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindCUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindCUDA\select_compute_arch.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.12.18081601-MSVC_2\CMakeCUDACompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeSystem.cmake: phony
+build ..\..\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCUDAInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\GNUInstallDirs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows-NVIDIA-CUDA.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.12.18081601-MSVC_2\CMakeCUDACompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.12.18081601-MSVC_2\CMakeSystem.cmake: phony
 
 #############################################
 # Clean all the built files.

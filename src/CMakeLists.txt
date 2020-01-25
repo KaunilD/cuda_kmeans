@@ -22,15 +22,15 @@ else(CUDA_FOUND)
 	message("CUDA is not installed on this system.")
 endif()
 
-set ( KERNELS
-	kmeans.cu
+set( HEADERS 
+	${PROJECT_SOURCE_DIR}/include/cuda_kmeans/libs.hpp
+	${PROJECT_SOURCE_DIR}/include/cuda_kmeans/cuda_datum.hpp
+	${PROJECT_SOURCE_DIR}/include/cuda_kmeans/cuda_kmeans.hpp
+	${PROJECT_SOURCE_DIR}/include/cuda_kmeans/cuda_utils.hpp
 )
 
-set ( HEADERS
-	${CMAKE_SOURCE_DIR}/include/cuda_datum.hpp
-	${CMAKE_SOURCE_DIR}/include/cuda_kmeans.hpp
-	${CMAKE_SOURCE_DIR}/include/cuda_utils.hpp
-	${CMAKE_SOURCE_DIR}/include/libs.hpp
+set ( KERNELS
+	${PROJECT_SOURCE_DIR}/kernels/kmeans.cu
 )
 
 set ( SRCS
@@ -40,7 +40,14 @@ set ( SRCS
 )
 
 # Add source to this project's executable.
-add_library(libcudakmeans STATIC ${KERNELS} ${HEADERS} ${SOURCES})
+add_library(libcudakmeans STATIC ${KERNELS} ${SRCS} ${HEADERS})
 
-target_include_directories( libcudakmeans PUBLIC ${CMAKE_SOURCE_DIR}/include )
-target_include_directories( libcudakmeans PUBLIC ${CUDA_INCLUDE_DIRS})
+target_include_directories(
+	libcudakmeans 
+	PUBLIC
+		${CUDA_INCLUDE_DIRS}
+		$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+		$<INSTALL_INTERFACE:include>
+)
+target_compile_features(libcudakmeans PUBLIC cxx_std_11)
+source_group(TREE "${PROJECT_SOURCE_DIR}/include" PREFIX "Header Files" FILES ${HEADERS})

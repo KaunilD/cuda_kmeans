@@ -1,4 +1,4 @@
-#include "cuda_datum.hpp"
+#include "cuda_kmeans/cuda_datum.hpp"
 
 __global__ void d_cudaKMeans(float * datum){
 	int id = blockIdx.x*blockDim.x + threadIdx.x;

@@ -1,4 +1,4 @@
-#include "cuda_utils.hpp"
+#include "cuda_kmeans/cuda_utils.hpp"
 
 void error(const char *s) {
 	perror(s);

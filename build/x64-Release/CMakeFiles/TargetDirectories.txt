@@ -1,8 +1,2 @@
 C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/CMakeFiles/edit_cache.dir
 C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/CMakeFiles/rebuild_cache.dir
-C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/src/CMakeFiles/libcudakmeans.dir
-C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/src/CMakeFiles/edit_cache.dir
-C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/src/CMakeFiles/rebuild_cache.dir
-C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/examples/CMakeFiles/example.dir
-C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/examples/CMakeFiles/edit_cache.dir
-C:/Users/dhruv/Development/git/cuda_kmeans/build/x64-Release/examples/CMakeFiles/rebuild_cache.dir
