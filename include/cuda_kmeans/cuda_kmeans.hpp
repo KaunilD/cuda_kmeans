@@ -4,4 +4,4 @@
 #include "cuda_utils.hpp"
 #include "cuda_datum.hpp"
 
-void h_cudaKMeans(CUDADatum & data);
+void h_cudaKMeans(CUDADatum * dataset_1, CUDADatum * dataset_2, CUDADatum * matches);

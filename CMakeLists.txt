@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-project ("cuda_kmeans" VERSION 1.1 DESCRIPTION "CUDA Implementation of KMeans Algorithm" LANGUAGES CXX CUDA)
+project ("cuda_kmeans" VERSION 1.1 DESCRIPTION "CUDA implementation of KMeans Algorithm" LANGUAGES CXX CUDA)
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     set(CMAKE_CXX_EXTENSIONS OFF)

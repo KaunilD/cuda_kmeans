@@ -28,5 +28,7 @@ void check_error(cudaError_t status) {
 		error(buffer);
 	}
 
+	cudaDeviceSynchronize();
+
 }
 	
